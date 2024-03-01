@@ -10,7 +10,8 @@ const app = express();
 
 // app.engine('hbs', expressHbs({layoutsDir : 'views/layouts/', defaultLayout: 'main-layout', extname: 'hbs' })); for handlebar donot delete
 app.set('view engine', 'ejs');
-app.set('views', 'views');
+//app.set('views', 'views');
+app.set('views', path.join(__dirname, 'views'));
 
 const adminRoutes= require('./routes/admin');
 const shopRoutes = require('./routes/shop');
@@ -24,9 +25,9 @@ app.use(shopRoutes);
 app.use(errorController.get404);
 
 //app.listen(3000);
-//const port = 'https://nodejs-application-eta.vercel.app';
+const port = process.env.PORT || 3000;
 
-app.listen('https://nodejs-application-eta.vercel.app', () => {
+app.listen(port, () => {
     console.log('Server is running on port ${port}');
 });
 
