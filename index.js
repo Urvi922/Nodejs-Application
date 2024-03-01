@@ -24,7 +24,7 @@ app.use(shopRoutes);
 app.use(errorController.get404);
 
 //app.listen(3000);
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 'https://nodejs-application-eta.vercel.app/';
 
 app.listen(port, () => {
     console.log('Server is running on port ${port}');
